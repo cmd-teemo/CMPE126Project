@@ -1,0 +1,3 @@
+/Users/lurker/Documents/CMPE126Project/CMPE126Project/build/CMakeFiles/SFMLProject.dir
+/Users/lurker/Documents/CMPE126Project/CMPE126Project/build/CMakeFiles/edit_cache.dir
+/Users/lurker/Documents/CMPE126Project/CMPE126Project/build/CMakeFiles/rebuild_cache.dir
