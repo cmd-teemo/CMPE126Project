@@ -11,6 +11,8 @@ private:
     int playerAge;             // Age of the player
     std::string playerPosition; // Position of the player (e.g., Forward, Defender)
     double playerMarketValue;   // Market value of the player
+    bool EmptySinceStart = true;
+    bool EmptyAfterRemoval = false;
 
 public:
     // Constructors
@@ -70,6 +72,21 @@ public:
         std::cout << "Player Position: " << playerPosition << std::endl;
         std::cout << "Player Market Value: $" << playerMarketValue << std::endl;
     }
+
+    bool IsEmptySinceStart() {
+        return EmptySinceStart;
+    }
+
+    void SetEmptySinceStart(bool value) {
+        EmptySinceStart = value;
+    }
+    bool IsEmptyAfterRemoval() {
+        return EmptyAfterRemoval;
+    }
+    void SetEmptyAfterRemoval(bool value) {
+        EmptyAfterRemoval = value;
+    }
+
 };
 
 #endif // PLAYER_H
