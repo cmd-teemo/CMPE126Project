@@ -24,7 +24,7 @@ int main() {
     record.addRecord({8, "Alvarez", 23, "Striker" , 50000000});
     record.addRecord({9, "Rashford", 25, "Right Winger" , 70000000});
     record.addRecord({10, "Foden", 26, "Left Winger" , 100000000});
-    record.addRecordr({11, "Kane", 33, "Striker" , 90000000});
+    record.addRecord({11, "Kane", 33, "Striker" , 90000000});
     record.addRecord({12, "Lewondoski", 34, "Striker" , 60000000});
     record.addRecord({13, "Yamal", 17, "Left Winger" , 200000000});
     record.addRecord({14, "Endrick", 18, "Striker" , 75000000});
