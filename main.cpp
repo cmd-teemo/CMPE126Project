@@ -6,6 +6,9 @@
 #include <algorithm>
 #include <cstdlib>
 #include <vector>
+#include <sstream>
+
+using namespace std;
 
 
 
