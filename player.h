@@ -1,63 +1,75 @@
+#ifndef PLAYER_H
+#define PLAYER_H
+
 #include <iostream>
 #include <string>
 
 class Player {
 private:
-    std::string name;
-    int number;
-    std::string role; // Changed from status to role
-    int age;
+    int playerKey;             // Unique identifier for the player
+    std::string playerName;    // Name of the player
+    int playerAge;             // Age of the player
+    std::string playerPosition; // Position of the player (e.g., Forward, Defender)
+    double playerMarketValue;   // Market value of the player
 
 public:
-    // Default constructor
-    Player() : name("Unknown"), number(0), role("Benched"), age(0) {} // Default role set to "Bench"
+    // Constructors
+    Player() 
+        : playerKey(0), playerName("Unknown"), playerAge(0), playerPosition("Unknown"), playerMarketValue(0.0) {}
 
-    // Parameterized constructor
-    Player(std::string playerName, int playerNumber, std::string playerRole, int playerAge) 
-        : name(playerName), number(playerNumber), role(playerRole), age(playerAge) {}
+    Player(int key, std::string name, int age, std::string position, double marketValue) 
+        : playerKey(key), playerName(name), playerAge(age), playerPosition(position), playerMarketValue(marketValue) {}
 
-    // Function to set player name
-    void setName(const std::string& playerName) {
-        name = playerName;
+    // Setters
+    void setPlayerKey(int key) {
+        playerKey = key;
     }
 
-    // Function to get player name
-    std::string getName() const {
-        return name;
+    void setPlayerName(const std::string& name) {
+        playerName = name;
     }
 
-    // Function to set player number
-    void setNumber(int playerNumber) {
-        number = playerNumber;
+    void setPlayerAge(int age) {
+        playerAge = age;
     }
 
-    // Function to get player number
-    int getNumber() const {
-        return number;
+    void setPlayerPosition(const std::string& position) {
+        playerPosition = position;
     }
 
-    // Function to set player role
-    void setRole(const std::string& playerRole) {
-        role = playerRole;
+    void setPlayerMarketValue(double marketValue) {
+        playerMarketValue = marketValue;
     }
 
-    // Function to get player role
-    std::string getRole() const {
-        return role;
-    }
-    int getAge() const {
-        return age;
+    // Getters
+    int getPlayerKey() const {
+        return playerKey;
     }
 
-    void setAge(int playerAge) {
-        age = playerAge;
+    std::string getPlayerName() const {
+        return playerName;
     }
-    // Method to display player information
+
+    int getPlayerAge() const {
+        return playerAge;
+    }
+
+    std::string getPlayerPosition() const {
+        return playerPosition;
+    }
+
+    double getPlayerMarketValue() const {
+        return playerMarketValue;
+    }
+
+    // Display player information
     void displayInfo() const {
-        std::cout << "Player Name: " << name << std::endl;
-        std::cout << "Player Number: " << number << std::endl;
-        std::cout << "Player Role: " << role << std::endl; // Updated to role
-        std::cout << "Player Age: " << age << std::endl;
+        std::cout << "Player Key: " << playerKey << std::endl;
+        std::cout << "Player Name: " << playerName << std::endl;
+        std::cout << "Player Age: " << playerAge << std::endl;
+        std::cout << "Player Position: " << playerPosition << std::endl;
+        std::cout << "Player Market Value: $" << playerMarketValue << std::endl;
     }
 };
 
+#endif // PLAYER_H
