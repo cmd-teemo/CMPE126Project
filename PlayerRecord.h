@@ -39,11 +39,11 @@ Space Complexity:
         value->SetEmptySinceStart(false);
 
       // Get the key's hash codes
-      int hashCode = hash(key);
+      //int hashCode = hash(key);
 
       // First search for the key in the table. If found, update bucket's value.
       for (int i = 0; i < tableSize; i++) {
-         int bucketIndex = (hashCode + i ) % tableSize;
+         int bucketIndex = (key + i ) % tableSize;
          
          // An empty-since-start bucket implies the key is not in the table
          if (table[bucketIndex]->IsEmptySinceStart()) {
@@ -64,7 +64,7 @@ Space Complexity:
       
       // The key is not in the table, so insert into first empty bucket
       for (int i = 0; i < tableSize; i++) {
-         int bucketIndex = (hashCode + i) % tableSize;
+         int bucketIndex = (key + i) % tableSize;
          if (table[bucketIndex]->IsEmptySinceStart()) {
             table[bucketIndex] = value;
             playersort->insert(key); // ********** REPLACE FOR BST
@@ -83,12 +83,14 @@ Time Complexity:
 Space Complexity:
     Auxiliary space is ( O(50)) ).
     */
+
+   // Get the key's hash codes (FOR DOUBLE HASHING)
+      //int hashCode = hash(key);
         Player* value = new Player();
         value->SetEmptySinceStart(false);
         value->SetEmptyAfterRemoval(true);
-        int hashCode = hash(key);
         for (int i = 0; i < tableSize; i++) {
-         int bucketIndex = (hashCode + i ) % tableSize;
+         int bucketIndex = (key + i ) % tableSize;
          
          // An empty-since-start bucket implies the key is not in the table
          if (table[bucketIndex]->IsEmptySinceStart()) {
@@ -107,7 +109,7 @@ Space Complexity:
 
       // The key is not in the table, so insert into first empty bucket
       for (int i = 0; i < tableSize; i++) {
-         int bucketIndex = (hashCode + i) % tableSize;
+         int bucketIndex = (key + i) % tableSize;
          if (table[bucketIndex]->IsEmptySinceStart()) {
             table[bucketIndex] = value;
             return true;
@@ -118,9 +120,38 @@ Space Complexity:
    }
     // Function to display all players
     void displayAllPlayers() const;
-
+    
     // Function to find a player by key
-    Player* findPlayer(int playerKey);
+    Player* getRecord(int playerKey) {
+       //  int hashKey = hash(playerKey); (FOR DOUBLE HASHING)
+        for (int i = 0; i < tableSize; i++) {
+            int bucketIndex = (playerKey + i) % tableSize;
+
+            // Check if EmptySinceStart, go to next loop
+            if (table[bucketIndex]->IsEmptySinceStart()) {
+                break;
+            }
+            // Check if EmptyAfterRemoval is False
+            else if(!table[bucketIndex]->IsEmptyAfterRemoval()) {
+                if (playerKey == table[bucketIndex]->getPlayerKey()) {
+                    // Return the Player pointer from table
+                    return table[bucketIndex];
+                }
+            }
+        }
+
+        // For Loop to check empty from start without hash
+        for (int i = 0; i < tableSize; i++) {
+            int bucketIndex = (playerKey + i) % tableSize;
+            if (!table[bucketIndex]->IsEmptyAfterRemoval() && !table[bucketIndex]->IsEmptySinceStart()){
+                if (playerKey == table[bucketIndex]->getPlayerKey()) {
+                    return table[bucketIndex];
+                }
+            }
+        }
+        // IF NOT FOUND RETURN NULLTPR
+        return nullptr;
+    }
 };
 
 #endif // PLAYERRECORD_H
