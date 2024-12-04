@@ -11,8 +11,9 @@ private:
     int playerAge;             // Age of the player
     std::string playerPosition; // Position of the player (e.g., Forward, Defender)
     double playerMarketValue;   // Market value of the player
-    bool EmptySinceStart = true;
-    bool EmptyAfterRemoval = false;
+    bool EmptySinceStart = true; // Used for Hash Table
+    bool EmptyAfterRemoval = false; // Used for Hash Table after removal
+
 
 public:
     // Constructors
