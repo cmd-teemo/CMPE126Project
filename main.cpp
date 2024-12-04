@@ -30,7 +30,7 @@ int main() {
     record.addRecord({14, "Endrick", 18, "Striker" , 75000000});
     record.addRecord({15, "Son", 28, "Right Winger " , 20000000});
 
-    cr.displaySortedPlayers();
+    record.displaySortedPlayers();
 
     return 0;
 }
