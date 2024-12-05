@@ -6,7 +6,7 @@
 #include <list>
 #include <string>
 #include "Player.h" // Include the Player class
-#include "heap.h" // Include the Heap Class
+#include "node.h" // Include the Heap Class
 
 class PlayerRecord {
 private:

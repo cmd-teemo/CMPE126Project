@@ -9,7 +9,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
 
 # Add the executable
-add_executable(SFMLProject main.cpp)
+add_executable(SFMLProject main.cpp
+        tree.h)
 
 # Link SFML libraries
 target_link_libraries(SFMLProject sfml-graphics sfml-window sfml-system)
