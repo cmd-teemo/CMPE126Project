@@ -1,56 +1,63 @@
 #ifndef TREE_H
 #define TREE_H
 
-#include "node.h"
+#include "player.h"
 #include <iostream>
-#include <iomanip> // For formatting output
+
+class Node {
+public:
+    Player* player;
+    Node* left;
+    Node* right;
+
+    Node(Player* player) : player(player), left(nullptr), right(nullptr) {}
+};
 
 class Tree {
 private:
-    Node* root{};
+    Node* root;
 
-    static Node* insert(const Node* node, int id, const std::string& name, int age, double marketValue) {
+    Node* insert(Node* node, Player* player) {
         if (!node) {
-            return new Node(id, name, age, marketValue);
+            return new Node(player);
         }
-        if (age < node->age) {
-            node->left = insert(node->left, id, name, age, marketValue);
+        if (player->getAge() < node->player->getAge()) {
+            node->left = insert(node->left, player);
         } else {
-            node->right = insert(node->right, id, name, age, marketValue);
+            node->right = insert(node->right, player);
         }
         return node;
     }
 
-    static void inOrderTraversal(const Node* node) {
+    void inOrderTraversal(Node* node) const {
         if (node) {
             inOrderTraversal(node->left);
-            std::cout << std::fixed << std::setprecision(0); // Ensure fixed-point notation
-            std::cout << "ID: " << node->id << ", Name: " << node->name
-                      << ", Age: " << node->age << ", Market Value: $" << node->marketValue << '\n';
+            node->player->display();
             inOrderTraversal(node->right);
         }
     }
 
-    static void deleteTree(const Node* node) {
+    void freeTree(Node* node) {
         if (node) {
-            deleteTree(node->left);
-            deleteTree(node->right);
+            freeTree(node->left);
+            freeTree(node->right);
+            delete node->player;
             delete node;
         }
     }
 
 public:
-    Tree() : root(nullptr){}
+    Tree() : root(nullptr) {}
 
     ~Tree() {
-        deleteTree(root);
+        freeTree(root);
     }
 
-    void addPlayer(int id, const std::string& name, int age, double marketValue) {
-        root = insert(root, id, name, age, marketValue);
+    void addPlayer(Player* player) {
+        root = insert(root, player);
     }
 
-    static void display() {
+    void display() const {
         std::cout << "\n--- Players by Age (Binary Tree In-Order Traversal) ---\n";
         inOrderTraversal(root);
     }
