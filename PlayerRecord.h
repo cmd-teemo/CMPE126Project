@@ -6,13 +6,14 @@
 #include <list>
 #include <string>
 #include "Player.h" // Include the Player class
-#include "node.h" // Include the Heap Class
+#include "tree.h" // Include the Tree Class
+#include "node.h" // Include node class
 
 class PlayerRecord {
 private:
     static const int tableSize = 50; // Size of the hash table
     Player* table[50]; // Array of lists for chaining
-    Heap* playersort;
+    Tree* playerTree;
     // Hash function to calculate index
     
     int hash(int playerKey) const {
