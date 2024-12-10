@@ -22,13 +22,15 @@ private:
 
 public:
     PlayerRecord() {
-
+        for (int i = 0; i < tableSize; i++) {
+        table[i] = nullptr;
+    }
     } // Constructor
     ~PlayerRecord() {
         for(int i = 0; i < 50; i++) {
             delete table[i];
         }
-    } // Destructor
+    } // Destructor */
     
 
     // Function to add a new player
@@ -55,9 +57,10 @@ Space Complexity:
          int bucketIndex = (key + i ) % tableSize;
          
          // An empty-since-start bucket implies the key is not in the table
-         if (table[bucketIndex]->IsEmptySinceStart()) {
-            break;
-         }
+         if (table[bucketIndex] == nullptr || table[bucketIndex]->IsEmptySinceStart()) {
+         break;
+    }
+
          
          if (!table[bucketIndex]->IsEmptyAfterRemoval()) {
             // Check if the non-empty bucket has the key
