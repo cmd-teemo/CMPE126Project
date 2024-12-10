@@ -1,4 +1,4 @@
-// Project Assignment: Scoccer Player Market
+// Project Assignment: Soccer Player Market
 // Rohan Khadka, Cung Sin Mawi, Leo Nguyen
 // CMPE 126: Sec 07
 // Professor Faramarz Mortezaie
