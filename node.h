@@ -2,6 +2,7 @@
 #define NODE_H
 
 #include <string>
+#include "player.h"
 
 
 // Node structure for a binary tree

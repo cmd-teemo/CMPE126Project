@@ -37,6 +37,7 @@ Space Complexity:
     */
         // Create a new Player to add.
         Player* value = new Player(key,name,age,position,marketValue);
+        Node* newNode = new Node(value);
         value->SetEmptySinceStart(false);
 
       // Get the key's hash codes

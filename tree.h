@@ -21,7 +21,7 @@ private:
         if (!node) {
             return new Node(player);
         }
-        if (player->getAge() < node->player->getAge()) {
+        if (player->getPlayerAge() < node->player->getPlayerAge()) {
             node->left = insert(node->left, player);
         } else {
             node->right = insert(node->right, player);
