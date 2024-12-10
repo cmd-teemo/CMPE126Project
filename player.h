@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <string>
+#include <iomanip>
+
 
 class Player {
 private:
@@ -21,7 +23,7 @@ public:
         : playerKey(0), playerName("Unknown"), playerAge(0), playerPosition("Unknown"), playerMarketValue(0.0), EmptySinceStart(true), EmptyAfterRemoval(false) {}
 
     Player(int key, std::string name, int age, std::string position, double marketValue) 
-        : playerKey(key), playerName(name), playerAge(age), playerPosition(position), playerMarketValue(marketValue), EmptySinceStart(false), EmptyAfterRemoval(true) {}
+        : playerKey(key), playerName(name), playerAge(age), playerPosition(position), playerMarketValue(marketValue), EmptySinceStart(false), EmptyAfterRemoval(false) {}
 
     // Setters
     void setPlayerKey(int key) {
@@ -67,11 +69,17 @@ public:
 
     // Display player information
     void displayInfo() const {
-        std::cout << "Player Key: " << playerKey << std::endl;
+        /* std::cout << "Player Key: " << playerKey << std::endl;
         std::cout << "Player Name: " << playerName << std::endl;
         std::cout << "Player Age: " << playerAge << std::endl;
         std::cout << "Player Position: " << playerPosition << std::endl;
-        std::cout << "Player Market Value: $" << playerMarketValue << std::endl;
+        std::cout << "Player Market Value: $" << std::fixed << std::setprecision(0) << playerMarketValue << std::endl; */
+        std::cout << std::fixed << std::setprecision(0)
+                  << "ID: " << playerKey
+                  << ", Name: " << playerName
+                  << ", Age: " << playerAge
+                  << ", Position: " << playerPosition
+                  << ", Market Value: $" << playerMarketValue << '\n';
     }
 
     bool IsEmptySinceStart() {
