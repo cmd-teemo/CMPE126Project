@@ -1,4 +1,8 @@
-
+// Project Assignment: Scoccer Player Market
+// Rohan Khadka, Cung Sin Mawi, Leo Nguyen
+// CMPE 126: Sec 07
+// Professor Faramarz Mortezaie
+// December 9, 2024
 
 #include "PlayerRecord.h"
 #include "tree.h"
