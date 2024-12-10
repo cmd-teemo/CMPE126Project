@@ -1,6 +1,7 @@
 
 #include "PlayerRecord.h"
 #include "tree.h"
+#include "player.h"
 #include <iostream>
 #include <queue>
 #include <iomanip>

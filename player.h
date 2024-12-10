@@ -8,11 +8,12 @@
 
 class Player {
 private:
+    double playerMarketValue;   // Market value of the player
     int playerKey;             // Unique identifier for the player
     std::string playerName;    // Name of the player
     int playerAge;             // Age of the player
     std::string playerPosition; // Position of the player (e.g., Forward, Defender)
-    double playerMarketValue;   // Market value of the player
+    
     bool EmptySinceStart; // Used for Hash Table
     bool EmptyAfterRemoval; // Used for Hash Table after removal
 
@@ -22,8 +23,8 @@ public:
     Player() 
         : playerKey(0), playerName("Unknown"), playerAge(0), playerPosition("Unknown"), playerMarketValue(0.0), EmptySinceStart(true), EmptyAfterRemoval(false) {}
 
-    Player(int key, std::string name, int age, std::string position, double marketValue) 
-        : playerKey(key), playerName(name), playerAge(age), playerPosition(position), playerMarketValue(marketValue), EmptySinceStart(false), EmptyAfterRemoval(false) {}
+    Player(double marketValue, std::string name, int age, std::string position, int key) 
+        : playerMarketValue(marketValue), playerName(name), playerAge(age), playerPosition(position),playerKey(key) , EmptySinceStart(false), EmptyAfterRemoval(false) {}
 
     // Setters
     void setPlayerKey(int key) {
@@ -106,11 +107,12 @@ public:
     bool operator<(const Player& other) const {
         return playerMarketValue < other.getPlayerMarketValue();
     }
+    
     bool operator>(const Player& other) const {
         return playerMarketValue > other.getPlayerMarketValue();
     }
 
-    bool operator=(const Player& other) const {
+    bool operator==(const Player& other) const {
         return playerMarketValue == other.getPlayerMarketValue();
     }
 };
