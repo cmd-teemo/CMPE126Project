@@ -6,14 +6,14 @@
 #include <list>
 #include <string>
 #include "player.h" // Include the Player class
-#include "tree.h" // Include the Tree Class
+//#include "tree.h" // Include the Tree Class
 //#include "node.h" // Include node class
 
 class PlayerRecord {
 private:
     static const int tableSize = 50; // Size of the hash table
     Player* table[50]; // Array of lists for chaining
-    Tree* playerTree;
+    //Tree* playerTree;
     // Hash function to calculate index
     
     int hash(int playerKey) const {
@@ -29,6 +29,7 @@ public:
     ~PlayerRecord() {
         for(int i = 0; i < 50; i++) {
             delete table[i];
+            table[i] = nullptr;
         }
     } // Destructor */
     
@@ -46,7 +47,7 @@ Space Complexity:
     */
         // Create a new Player to add.
         Player* value = new Player(key,name,age,position,marketValue);
-        Node* newNode = new Node(value);
+        //Node* newNode = new Node(value);
         value->SetEmptySinceStart(false);
 
       // Get the key's hash codes
@@ -103,9 +104,10 @@ Space Complexity:
          int bucketIndex = (key + i ) % tableSize;
          
          // An empty-since-start bucket implies the key is not in the table
-         if (table[bucketIndex]->IsEmptySinceStart()) {
-            break;
-         }
+         if (table[bucketIndex] == nullptr || table[bucketIndex]->IsEmptySinceStart()) {
+    break;
+}
+
          
          if (!table[bucketIndex]->IsEmptyAfterRemoval()) {
             // Check if the non-empty bucket has the key
@@ -129,7 +131,7 @@ Space Complexity:
       return false; // no empty bucket found
    }
     // Function to display all players
-    void displayAllPlayers() const;
+    //void displayAllPlayers() const;
     
     // Function to find a player by key
     Player* getPlayerById(int playerKey) {
@@ -138,9 +140,10 @@ Space Complexity:
             int bucketIndex = (playerKey + i) % tableSize;
 
             // Check if EmptySinceStart, go to next loop
-            if (table[bucketIndex]->IsEmptySinceStart()) {
-                break;
-            }
+            if (table[bucketIndex] == nullptr || table[bucketIndex]->IsEmptySinceStart()) {
+    break;
+}
+
             // Check if EmptyAfterRemoval is False
             else if(!table[bucketIndex]->IsEmptyAfterRemoval()) {
                 if (playerKey == table[bucketIndex]->getPlayerKey()) {
