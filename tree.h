@@ -2,16 +2,17 @@
 #define TREE_H
 
 #include "player.h"
+//#include "node.h"
 #include <iostream>
 
 class Node {
 public:
-    Player* player;
+    Player* value;
     Node* left;
     Node* right;
 
-    Node(Player* player) : player(player), left(nullptr), right(nullptr) {}
-};
+    Node(Player* player) : value(player), left(nullptr), right(nullptr) {}
+}; 
 
 class Tree {
 private:
@@ -21,7 +22,7 @@ private:
         if (!node) {
             return new Node(player);
         }
-        if (player->getAge() < node->player->getAge()) {
+        if (player->getPlayerAge() < node->value->getPlayerAge()) {
             node->left = insert(node->left, player);
         } else {
             node->right = insert(node->right, player);
@@ -32,7 +33,7 @@ private:
     void inOrderTraversal(Node* node) const {
         if (node) {
             inOrderTraversal(node->left);
-            node->player->display();
+            node->value->displayInfo();
             inOrderTraversal(node->right);
         }
     }
@@ -41,9 +42,9 @@ private:
         if (node) {
             freeTree(node->left);
             freeTree(node->right);
-            if (node->player) {
-                delete node->player;
-                node->player = nullptr;
+            if (node->value) {
+                delete node->value;
+                node->value = nullptr;
             }
             delete node;
         }
