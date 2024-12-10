@@ -51,7 +51,7 @@ int main() {
             }
         } while (!selectedPlayer);
 
-        selectedPlayer->display();
+        selectedPlayer->displayInfo();
 
         char addToCart;
         std::cout << "Add player to shopping cart? (Y/N): ";
@@ -77,7 +77,7 @@ int main() {
     std::cout << "\n--- Shopping Cart (Sorted by Market Value) ---\n";
     std::priority_queue<Player*> sortedCart = shoppingCart;
     while (!sortedCart.empty()) {
-        sortedCart.top()->display();
+        sortedCart.top()->displayInfo();
         sortedCart.pop();
     }
     ageTree.display();
@@ -91,9 +91,9 @@ int main() {
         Player* player = shoppingCart.top();
         shoppingCart.pop();
 
-        if (player->getId() == purchaseKey) {
-            std::cout << "Congratulation. You have Purchased : " << player->getName() << " .Here is his information \n";
-            player->display();
+        if (player->getPlayerKey() == purchaseKey) {
+            std::cout << "Congratulation. You have Purchased : " << player->getPlayerName() << " .Here is his information \n";
+            player->displayInfo();
             purchased = true;
             break;
         }

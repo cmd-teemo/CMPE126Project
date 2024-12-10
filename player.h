@@ -88,6 +88,23 @@ public:
         EmptyAfterRemoval = value;
     }
 
+    bool operator>=(const Player& other) const {
+        return playerMarketValue >= other.getPlayerMarketValue();
+    }
+
+    bool operator<=(const Player& other) const {
+        return playerMarketValue <= other.getPlayerMarketValue();
+    }
+    bool operator<(const Player& other) const {
+        return playerMarketValue < other.getPlayerMarketValue();
+    }
+    bool operator>(const Player& other) const {
+        return playerMarketValue > other.getPlayerMarketValue();
+    }
+
+    bool operator=(const Player& other) const {
+        return playerMarketValue == other.getPlayerMarketValue();
+    }
 };
 
 #endif // PLAYER_H

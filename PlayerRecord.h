@@ -5,9 +5,9 @@
 #include <vector>
 #include <list>
 #include <string>
-#include "Player.h" // Include the Player class
+#include "player.h" // Include the Player class
 #include "tree.h" // Include the Tree Class
-#include "node.h" // Include node class
+//#include "node.h" // Include node class
 
 class PlayerRecord {
 private:
@@ -21,8 +21,15 @@ private:
     }
 
 public:
-    PlayerRecord(); // Constructor
-    ~PlayerRecord(); // Destructor
+    PlayerRecord() {
+
+    } // Constructor
+    ~PlayerRecord() {
+        for(int i = 0; i < 50; i++) {
+            delete table[i];
+        }
+    } // Destructor
+    
 
     // Function to add a new player
     
@@ -57,7 +64,7 @@ Space Complexity:
             if (key == table[bucketIndex]->getPlayerKey()) {
                // Update the value
                table[bucketIndex] = value;
-               playersort->insert(key); // ********** REPLACE FOR BST
+               //playerTree->insert(newNode,value); // ********** REPLACE FOR BST
                return true;
             }
          }
@@ -69,7 +76,7 @@ Space Complexity:
          int bucketIndex = (key + i) % tableSize;
          if (table[bucketIndex]->IsEmptySinceStart()) {
             table[bucketIndex] = value;
-            playersort->insert(key); // ********** REPLACE FOR BST
+            //playerTree->insert(newNode,value); // ********** REPLACE FOR BST
             return true;
          }
       }
@@ -124,7 +131,7 @@ Space Complexity:
     void displayAllPlayers() const;
     
     // Function to find a player by key
-    Player* getRecord(int playerKey) {
+    Player* getPlayerById(int playerKey) {
        //  int hashKey = hash(playerKey); (FOR DOUBLE HASHING)
         for (int i = 0; i < tableSize; i++) {
             int bucketIndex = (playerKey + i) % tableSize;
