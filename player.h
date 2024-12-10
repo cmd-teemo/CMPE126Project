@@ -23,7 +23,7 @@ public:
     Player() 
         : playerKey(0), playerName("Unknown"), playerAge(0), playerPosition("Unknown"), playerMarketValue(0.0), EmptySinceStart(true), EmptyAfterRemoval(false) {}
 
-    Player(double marketValue, std::string name, int age, std::string position, int key) 
+    Player(int key, std::string name, int age, std::string position, double marketValue) 
         : playerMarketValue(marketValue), playerName(name), playerAge(age), playerPosition(position),playerKey(key) , EmptySinceStart(false), EmptyAfterRemoval(false) {}
 
     // Setters

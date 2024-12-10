@@ -28,8 +28,8 @@ public:
         }
     }
 
-    bool addRecord(double marketValue, std::string name, int age, std::string position, int key) {
-        Player* value = new Player(marketValue, name, age, position, key );
+    bool addRecord(int key, std::string name, int age, std::string position, double marketValue) {
+        Player* value = new Player(key, name, age, position, marketValue );
 
         for (int i = 0; i < tableSize; i++) {
             int bucketIndex = (key + i) % tableSize;
