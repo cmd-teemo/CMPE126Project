@@ -99,5 +99,27 @@ int main() {
     // Display binary tree (players sorted by age)
     ageTree.display();
 
+    std::cout << "\n ---- Which player do you want to purchase? --- \n";
+    int purchaseKey;
+    std::cin >> purchaseKey;
+
+    bool purchased = false;
+    while (!shoppingCart.empty()) {
+        Player* player = shoppingCart.top();
+        shoppingCart.pop();
+
+        if (player->getPlayerKey() == purchaseKey) {
+            std::cout << "Congratulation. You have Purchased : " << player->getPlayerName() << " . Here is his information \n";
+            player->displayInfo();
+            purchased = true;
+            break;
+        }
+    }
+
+    if (!purchased) {
+        std::cout << "Player with ID " << purchaseKey << " is not in your cart.\n";
+    }
+    std:: cout << "Thank you.\n";
+
     return 0;
 }
