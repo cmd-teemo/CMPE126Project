@@ -75,12 +75,34 @@ int main() {
     }
 
     std::cout << "\n--- Shopping Cart (Sorted by Market Value) ---\n";
+    std::priority_queue<Player*> sortedCart = shoppingCart;
+    while (!sortedCart.empty()) {
+        sortedCart.top()->display();
+        sortedCart.pop();
+    }
+    ageTree.display();
+
+    std::cout << "\n ---- Which player do you want to purchase? --- \n";
+    int purchaseKey;
+    std::cin >> purchaseKey;
+
+    bool purchased = false;
     while (!shoppingCart.empty()) {
-        shoppingCart.top()->display();
+        Player* player = shoppingCart.top();
         shoppingCart.pop();
+
+        if (player->getId() == purchaseKey) {
+            std::cout << "Congratulation. You have Purchased : " << player->getName() << " .Here is his information \n";
+            player->display();
+            purchased = true;
+            break;
+        }
     }
 
-    ageTree.display();
+    if (!purchased) {
+        std::cout << "Player with ID " << purchaseKey << " is not in your cart.\n";
+    }
+    std:: cout << "Thank you.\n";
 
     return 0;
 }

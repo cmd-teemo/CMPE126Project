@@ -21,8 +21,8 @@ public:
         for (int i = 0; i < TABLE_SIZE; ++i) {
             for (size_t j = 0; j < hashTable[i].size(); ++j) {
                 if (hashTable[i][j]) {
-                    delete hashTable[i][j]; // Free dynamically allocated memory
-                    hashTable[i][j] = nullptr; // Nullify the pointer to avoid double deletion
+                    delete hashTable[i][j];
+                    hashTable[i][j] = nullptr;
                 }
             }
             hashTable[i].clear();

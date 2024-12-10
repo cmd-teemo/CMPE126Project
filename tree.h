@@ -41,7 +41,10 @@ private:
         if (node) {
             freeTree(node->left);
             freeTree(node->right);
-            delete node->player;
+            if (node->player) {
+                delete node->player;
+                node->player = nullptr;
+            }
             delete node;
         }
     }
