@@ -92,7 +92,7 @@ int main() {
         shoppingCart.pop();
 
         if (player->getPlayerKey() == purchaseKey) {
-            std::cout << "Congratulation. You have Purchased : " << player->getPlayerName() << " .Here is his information \n";
+            std::cout << "Congratulation. You have Purchased : " << player->getPlayerName() << " . Here is his information \n";
             player->displayInfo();
             purchased = true;
             break;
