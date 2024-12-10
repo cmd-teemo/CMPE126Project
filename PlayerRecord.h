@@ -98,9 +98,7 @@ Space Complexity:
 
    // Get the key's hash codes (FOR DOUBLE HASHING)
       //int hashCode = hash(key);
-        Player* value = new Player();
-        value->SetEmptySinceStart(false);
-        value->SetEmptyAfterRemoval(true);
+        
         for (int i = 0; i < tableSize; i++) {
          int bucketIndex = (key + i ) % tableSize;
          
@@ -113,7 +111,7 @@ Space Complexity:
             // Check if the non-empty bucket has the key
             if (key == table[bucketIndex]->getPlayerKey()) {
                // Update the value to null
-               table[bucketIndex] = value;
+               table[bucketIndex] = nullptr;
                return true;
             }
          }
@@ -123,11 +121,11 @@ Space Complexity:
       for (int i = 0; i < tableSize; i++) {
          int bucketIndex = (key + i) % tableSize;
          if (table[bucketIndex]->IsEmptySinceStart()) {
-            table[bucketIndex] = value;
+            table[bucketIndex] = nullptr;
             return true;
          }
       }
-      delete value;
+    
       return false; // no empty bucket found
    }
     // Function to display all players
