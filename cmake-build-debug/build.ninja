@@ -56,13 +56,6 @@ build CMakeFiles/SFMLProject.dir/main.cpp.o: CXX_COMPILER__SFMLProject_unscanned
   OBJECT_DIR = CMakeFiles/SFMLProject.dir
   OBJECT_FILE_DIR = CMakeFiles/SFMLProject.dir
 
-build CMakeFiles/SFMLProject.dir/main.dSYM/tree.cpp.o: CXX_COMPILER__SFMLProject_unscanned_Debug /Users/rohankhadka/CLionProjects/CMPE126Project/main.dSYM/tree.cpp || cmake_object_order_depends_target_SFMLProject
-  DEP_FILE = CMakeFiles/SFMLProject.dir/main.dSYM/tree.cpp.o.d
-  FLAGS = -std=c++17 -stdlib=libc++ -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -mmacosx-version-min=14.5 -fcolor-diagnostics
-  INCLUDES = -isystem /opt/homebrew/include
-  OBJECT_DIR = CMakeFiles/SFMLProject.dir
-  OBJECT_FILE_DIR = CMakeFiles/SFMLProject.dir/main.dSYM
-
 
 # =============================================================================
 # Link build statements for EXECUTABLE target SFMLProject
@@ -71,7 +64,7 @@ build CMakeFiles/SFMLProject.dir/main.dSYM/tree.cpp.o: CXX_COMPILER__SFMLProject
 #############################################
 # Link the executable bin/SFMLProject
 
-build bin/SFMLProject: CXX_EXECUTABLE_LINKER__SFMLProject_Debug CMakeFiles/SFMLProject.dir/main.cpp.o CMakeFiles/SFMLProject.dir/main.dSYM/tree.cpp.o | /opt/homebrew/lib/libsfml-graphics.2.6.2.dylib /opt/homebrew/lib/libsfml-window.2.6.2.dylib /opt/homebrew/lib/libsfml-system.2.6.2.dylib
+build bin/SFMLProject: CXX_EXECUTABLE_LINKER__SFMLProject_Debug CMakeFiles/SFMLProject.dir/main.cpp.o | /opt/homebrew/lib/libsfml-graphics.2.6.2.dylib /opt/homebrew/lib/libsfml-window.2.6.2.dylib /opt/homebrew/lib/libsfml-system.2.6.2.dylib
   FLAGS = -std=c++17 -stdlib=libc++ -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -mmacosx-version-min=14.5
   LINK_LIBRARIES = -Wl,-rpath,/opt/homebrew/lib  /opt/homebrew/lib/libsfml-graphics.2.6.2.dylib  /opt/homebrew/lib/libsfml-window.2.6.2.dylib  /opt/homebrew/lib/libsfml-system.2.6.2.dylib
   OBJECT_DIR = CMakeFiles/SFMLProject.dir

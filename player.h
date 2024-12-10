@@ -19,11 +19,21 @@ public:
         : id(id), name(name), age(age), position(position), marketValue(marketValue) {}
 
     // Getters
-    int getId() const { return id; }
-    const std::string& getName() const { return name; }
-    int getAge() const { return age; }
-    const std::string& getPosition() const { return position; }
-    double getMarketValue() const { return marketValue; }
+    int getId() const {
+        return id;
+    }
+    const std::string& getName() const {
+        return name;
+    }
+    int getAge() const {
+        return age;
+    }
+    const std::string& getPosition() const {
+        return position;
+    }
+    double getMarketValue() const {
+        return marketValue;
+    }
 
     // Display player information
     void display() const {
